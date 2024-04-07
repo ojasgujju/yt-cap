@@ -1,23 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Data</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            opacity: 0.2;
+            pointer-events: none; /* This ensures that the watermark doesn't interfere with clicking */
+        }
+
+        body {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.addEventListener('click', function () {
+                window.location.href = 'https://telegram.me/urlpdfbot'; // Replace YOUR_LINK_HERE with your desired link
+            });
+        });
+    </script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>JSON Data</h1>
-        <div class="row">
-            <div class="col">
-                <ul class="list-group">
-                    {% for item in json_data %}
-                        <li class="list-group-item pd-50">{{ item.text }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-md px-4 md:px-8">
+            <h1 class="mb-4 text-center text-xl font-bold text-gray-800 sm:text-3xl md:mb-6">Youtube Video Transcript
+            </h1>
+            {% for item in json_data %}
+            {{ item.text }}. {% if not loop.last %} {% endif %}
+            {% endfor %}
         </div>
     </div>
+    <div class="watermark">WEB to PDF bot</div>
 </body>
+
 </html>
