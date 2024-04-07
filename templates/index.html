@@ -11,35 +11,33 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 48px;
-            opacity: 0.2;
-            pointer-events: none; /* This ensures that the watermark doesn't interfere with clicking */
+            font-size: 100px;
+            opacity: 0.5;
+            pointer-events: none;
+            /* This ensures that the watermark doesn't interfere with clicking */
         }
 
         body {
             cursor: pointer;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.body.addEventListener('click', function () {
-                window.location.href = 'https://telegram.me/urlpdfbot'; // Replace YOUR_LINK_HERE with your desired link
-            });
-        });
-    </script>
+
 </head>
 
 <body>
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
-        <div class="mx-auto max-w-screen-md px-4 md:px-8">
-            <h1 class="mb-4 text-center text-xl font-bold text-gray-800 sm:text-3xl md:mb-6">Youtube Video Transcript
-            </h1>
-            {% for item in json_data %}
-            {{ item.text }}. {% if not loop.last %} {% endif %}
-            {% endfor %}
+    <a href="https://telegram.me/urlpdfbot">
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+            <div class="mx-auto max-w-screen-md px-4 md:px-8 text-2xl">
+                <h1 class="mb-4 text-center text-xl font-bold text-gray-800 sm:text-3xl md:mb-6">Youtube Video
+                    Transcript
+                </h1>
+                {% for item in json_data %}
+                {{ item.text }}. {% if not loop.last %} {% endif %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="watermark">WEB to PDF bot</div>
+        <div class="watermark">WEB to PDF bot</div>
+    </a>
 </body>
 
 </html>
